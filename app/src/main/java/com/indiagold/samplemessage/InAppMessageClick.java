@@ -16,23 +16,16 @@ public class InAppMessageClick implements FirebaseInAppMessagingClickListener, F
     String TAG = "InAppMessageClick";
     @Override
     public void messageClicked(InAppMessage inAppMessage, Action action) {
-        // Determine which URL the user clicked
         String url = action.getActionUrl();
         Log.d(TAG, "Action URL : "+url);
-        // Get general information about the campaign
-        CampaignMetadata metadata = inAppMessage.getCampaignMetadata();
-        Log.d(TAG," Metadata : "+metadata);
     }
-
-
     @Override
     public void impressionDetected(InAppMessage inAppMessage) {
-        Log.d(TAG, "impressionDetected Action URL : "+inAppMessage.getCampaignMetadata().getCampaignName());
+        Log.d(TAG, "impressionDetected "+inAppMessage.getCampaignMetadata().getCampaignName());
+        Log.d(TAG, "metadata "+inAppMessage.getCampaignMetadata());
     }
-
     @Override
     public void displayMessage(InAppMessage inAppMessage, FirebaseInAppMessagingDisplayCallbacks firebaseInAppMessagingDisplayCallbacks) {
         Log.d(TAG, "displayMessage Action URL : "+inAppMessage.getCampaignMetadata().getCampaignName());
-
     }
 }

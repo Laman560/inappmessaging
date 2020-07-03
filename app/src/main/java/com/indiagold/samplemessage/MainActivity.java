@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.inappmessaging.FirebaseInAppMessaging;
 
@@ -23,14 +24,20 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.helloworld);
         textView.setClickable(true);
-        textView.setMovementMethod(MovementCheck.getInstance());
         String text = "<a href='http://www.google.com'> Google </a>";
         textView.setText(Html.fromHtml(text));
 
+        InternalLinkMovementMethod.OnLinkClickedListener clickListener = new InternalLinkMovementMethod.OnLinkClickedListener() {
+            @Override
+            public boolean onLinkClicked(String linkText) {
+                Toast.makeText(MainActivity.this , linkText , Toast.LENGTH_LONG).show();
+               return true;
+            }
+        };
 
+        textView.setMovementMethod(new InternalLinkMovementMethod(clickListener));
 
     }
-
 
 
 }

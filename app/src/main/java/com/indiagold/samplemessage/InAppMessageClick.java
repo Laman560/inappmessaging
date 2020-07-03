@@ -1,15 +1,11 @@
 package com.indiagold.samplemessage;
 
 import android.util.Log;
-
-import androidx.annotation.NonNull;
-
 import com.google.firebase.inappmessaging.FirebaseInAppMessagingClickListener;
 import com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplay;
 import com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks;
 import com.google.firebase.inappmessaging.FirebaseInAppMessagingImpressionListener;
 import com.google.firebase.inappmessaging.model.Action;
-import com.google.firebase.inappmessaging.model.CampaignMetadata;
 import com.google.firebase.inappmessaging.model.InAppMessage;
 
 public class InAppMessageClick implements FirebaseInAppMessagingClickListener, FirebaseInAppMessagingImpressionListener, FirebaseInAppMessagingDisplay  {
